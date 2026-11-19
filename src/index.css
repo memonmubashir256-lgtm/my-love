@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+:root {
+  --color-burgundy: #310714;
+  --color-crimson: #A31336;
+  --color-rose: #F4A6B8;
+  --color-gold: #D8B46A;
+  --color-cream: #FFF4EA;
+  --color-obsidian: #10080C;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--color-obsidian);
+    color: var(--color-cream);
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: var(--color-obsidian);
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+  }
+}
+
+.font-display {
+  font-family: var(--font-serif);
+}
+
+.font-body {
+  font-family: var(--font-sans);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Luxury surface washes */
+.bg-cinematic-radial {
+  background: radial-gradient(circle at 50% 35%, rgba(163, 19, 54, 0.28) 0%, rgba(49, 7, 20, 0.72) 45%, #10080C 100%);
+}
+
+.bg-proposal-radial {
+  background: radial-gradient(circle at 50% 42%, rgba(163, 19, 54, 0.44) 0%, rgba(49, 7, 20, 0.88) 52%, #10080C 100%);
+}
+
+/* 3D Envelope Perspective Utilities */
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Floating Petal Keyframes */
+@keyframes petalFall {
+  0% {
+    transform: translate3d(0, -12vh, 0) rotate(0deg) rotateX(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(var(--petal-drift, 60px), 112vh, 0) rotate(var(--petal-spin, 320deg)) rotateX(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes heartGlowBreath {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 18px rgba(163, 19, 54, 0.65));
+  }
+  50% {
+    transform: scale(1.06);
+    filter: drop-shadow(0 0 32px rgba(244, 166, 184, 0.85));
+  }
+}
+
+.animate-petal-fall {
+  animation: petalFall var(--petal-duration, 11s) linear infinite;
+  animation-delay: var(--petal-delay, 0s);
+}
+
+.animate-gentle-float {
+  animation: gentleFloat 5s ease-in-out infinite;
+}
+
+.animate-heart-breath {
+  animation: heartGlowBreath 2.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-petal-fall,
+  .animate-gentle-float,
+  .animate-heart-breath {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}

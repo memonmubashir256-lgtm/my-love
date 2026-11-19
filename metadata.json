@@ -1,0 +1,6 @@
+{
+  "name": "Forever Love",
+  "description": "A luxury 3D cinematic romantic proposal experience with interactive rose garden, 3D diamond ring box, love letter envelope, and memory timeline.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
